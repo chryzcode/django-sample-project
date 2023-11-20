@@ -5,6 +5,10 @@ name = "pypi"
 
 [packages]
 django = "*"
+whitenoise = "*"
+python-decouple = "*"
+django-heroku = "*"
+psycopg2-binary = "*"
 
 [dev-packages]
 
