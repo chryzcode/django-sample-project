@@ -20,4 +20,6 @@ from django.urls import path, include
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('my_app.urls')),
+#Django auth default url
+    path('', include('django.contrib.auth.urls')),
 ]

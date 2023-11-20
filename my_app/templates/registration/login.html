@@ -1,0 +1,51 @@
+{% extends 'base.html'%}
+{% load static %}
+<title>{% block title %}Sign In || My Note App{% endblock %}</title>
+{% block content %}
+
+{% if user.is_authenticated %}
+<p></p>
+{% else %}
+<div class="login-page-container">
+    <h3 class="page-header" >Sign In</h3>
+    <div class="login-container">
+        <p>My Notes App</p>
+        {% if not user.is_authenticated %}
+    {% if messages %} {% for message in messages %}
+    <div class="text-center alert alert-{{ message.tags }}">{{ message|safe }}</div>
+    {% endfor %} {% endif %} {% if form.errors %}
+    <p style="font-size: 20px; margin-left: 25px">Your username and password did not match. Please try again.</p>
+    {% endif %}
+    <form action="" method="post">
+      {% csrf_token %}
+      <div class="mb-3">
+        <label id="login-label" for="username" class="form-label">Username:</label>
+        <input id="login-form" type="text" class="form-control" name="username" id="username" placeholder="Username" />
+      </div>
+      <div class="mb-3">
+        <label id="login-label" for="password" class="form-label">Password:</label>
+        <input
+          id="login-form"
+          type="password"
+          class="form-control"
+          name="password"
+          id="password"
+          placeholder="Password"
+        />
+      </div>
+      <div id="login-btn">
+        <input class="btn btn-secondary" type="submit" value="Login" />
+      </div>
+    </form>
+    <h5 style="text-align: center; bottom: -50px; position: relative;">
+      Yet to have an account? <a href="register/">Sign up</a>
+    </h5>
+    {% else %}
+    <br /><br />
+    <p style="font-size: 30px; text-align: center; font-weight: 600">You are already logged in.</p>
+    {% endif %}
+    </div>
+</div>
+<p class="markdown-support-note">markdown supported</p>
+{% endif %}
+{% endblock %}

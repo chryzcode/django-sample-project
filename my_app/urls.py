@@ -1,6 +1,11 @@
 from django.urls import path
-from my_app.views import *
+from . import views
 
-urlpatterns = [
-    path('', customHomePage, name='custom_home_page')
+urlpatterns =[
+    path('', views.myNotesList, name='notes-list'),
+    path('add-note/', views.addNote, name='add-note'),
+    path('edit-note/<str:pk>/', views.editNote, name='edit-note'),
+    path('view-note/<str:pk>/', views.viewNote, name='view-note'),
+    path('delete-note/<str:pk>/', views.deleteNote, name='delete-note'),
+    path('delete-user/', views.deleteUser, name='delete-user'),
 ]
