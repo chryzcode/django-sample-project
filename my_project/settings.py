@@ -30,7 +30,7 @@ SECRET_KEY = config('SECRET_KEY')
 DEBUG = config("DEBUG", default=False, cast=bool)
 
 # the last value is the url of the Heroku app, remove the https:/
-ALLOWED_HOSTS = ["127.0.0.1", "localhost", "my-test-django-project-9a47545252ae.herokuapp.com/"]
+ALLOWED_HOSTS = ["127.0.0.1", "localhost", "my-test-django-project-9a47545252ae.herokuapp.com"]
 
 
 # Application definition
